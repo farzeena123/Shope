@@ -5,6 +5,8 @@ import {StarFill} from 'react-bootstrap-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useCart} from 'react-use-cart';
 import {CartProvider} from 'react-use-cart';
+import { NavLink } from 'react-router-dom';
+import data from '../../Data'
 
 
 const createArray=(length)=>[
@@ -23,25 +25,24 @@ function StarRating(){
   ))
 }
 
-function ItemCard(props) {
+function ItemCard() {
   
    
     const {addItem}=useCart();
-   
-   return (
-    <>
-    <CartProvider>
-    <Card className='m-3'  style={{ width: '18rem',backgroundColor:'beige', cursor:'pointer',marginBottom:'20px'}}>
-    <Card.Img variant="top" src={props.img}  className='zoom' />
-    <Card.Body>
-      <Card.Title>{props.title}</Card.Title>
+    const cardItem=(item)=>{
+      return(
+        <CartProvider>
+    <Card key={item.id} className='card m-3 '  style={{ width: '18rem',backgroundColor:'beige', cursor:'pointer',marginBottom:'20px'}}>
+      <NavLink to={`/products/${item.id}`} ><Card.Img variant="top" src={item.img}  className='zoom' /></NavLink> 
+    <Card.Body >
+      <Card.Title>{item.title}</Card.Title>
       <Card.Text>
-       {props.desc}
+       {item.desc}
       </Card.Text>
-      <Card.Text><strong>$ {props.price}</strong></Card.Text>
+      <Card.Text><strong>$ {item.price}</strong></Card.Text>
        <Container fluid>
        <Row  className='d-flex justify-content-center'>
-      <Button variant="dark" onClick={()=>addItem(props.item)}>   Add to cart  </Button>
+      <Button variant="dark" onClick={()=>addItem(item)}>Add to cart</Button>
       </Row><br/>
       <Col className='d-flex justify-content-center'>
       <StarRating />
@@ -52,7 +53,13 @@ function ItemCard(props) {
 
   
 </CartProvider>
-  </>
+      );
+    }
+   return (
+      <>
+    
+        {data.productData.map(cardItem)}
+      </>
   )
 }
 

@@ -27,22 +27,25 @@ function Header() {
       <div className='header'>
         <Navbar className='header' expand="lg">
       <Container fluid  >
-        <Navbar.Brand ><Link to={'/'} style={{textDecoration:'none',color:'black'}}><strong><Gem size={40} /></strong> </Link></Navbar.Brand>
+        <Navbar.Brand ><Link to={'/'} style={{textDecoration:'none',color:'black'}}><strong><Gem size={40} /></strong></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className="justify-content-end">
           <Nav >
             
-               <Link to={'/products'}> <Button className='btn-dark btn'>Products</Button></Link>
-                 <Link to={'/cart'}> <Button variant='outline-dark' className='rounded-circle m-2' style={{width:'2.5rem',height:'2.5rem',position:'relative'}} > <CartFill   />  <div className='rounded-circle d-flex bg-dark justify-content-center align-items-center'  style={{
+               <Link to={'/products'}> <Button className='btn-dark btn m-2'>Products</Button></Link>
+              
+             <Link to={'/login'}> <Button className='btn btn-dark'>{user ? user.email:'Login'}</Button></Link>
+             <Link to={'/cart'}> <Button variant='dark' className='rounded m-2' style={{width:'2.5rem',height:'2.5rem',position:'relative'}} > <CartFill   />  
+             <div className='rounded-circle d-flex bg-white justify-content-center align-items-center' 
+              style={{
               position:'absolute',
-              color:'white',
+              color:'black',
               width:'1rem',
               height:'1rem',
               bottom:0,
               right:0,
               transform:'translate(25%,25%)'
               }} >({totalItems})</div>  </Button></Link>
-             <Link to={'/login'}> <Button className='btn btn-dark'>{user ? user.email:'Login'}</Button></Link>
         
         </Nav>
         </Navbar.Collapse>

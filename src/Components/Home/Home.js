@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container,Row,Col,Image} from 'react-bootstrap'
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import ItemCard from '../Products/ItemCard';
-import data from '../../Components/Products/Data'
+import data from '../../Data'
 import kidsData from '../Products/KidsData';
 import ItemCardKids from '../Products/ItemCardKids';
+import ItemCardHome from './ItemCardHome';
 
 
 function Home() {
@@ -41,16 +41,16 @@ function Home() {
            <hr />
           <br />
         <div className='posters'>
-          {data.productData.map((item,index)=>{
-          return(
-            <div className='posterdiv'>
-           <ItemCard
-           img={item.img} 
-           price={item.price} 
-           key={index} /> 
-           </div>
-          )
-          })}
+        {data.productData.map((items,index)=>{
+      return(
+        <div className='posterdiv'>
+          <ItemCardHome
+          img={items.img}
+          key={index}
+          />
+        </div>
+      )
+    })}
         </div>
       </Row>
      <br /><hr /><br />

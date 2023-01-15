@@ -10,6 +10,7 @@ import Signup from './Components/Signup/Signup'
 import Products from './Components/Products/Products';
 import Checkout from './Components/Payment/Checkout'
 import OrderSuccess from './Components/Payment/OrderSuccess';
+import ProductDetails from './Components/Products/ProductDetails';
 
 
 
@@ -25,12 +26,13 @@ return (
     
      <Switch>
      <Route exact path='/' component={Home} ><CartProvider><Home/></CartProvider></Route>
-      <Route  path='/cart' component={Cart}   ><CartProvider><Cart/></CartProvider></Route>
-      <Route path='/signup' component={Signup}><Signup/></Route>
-      <Route path='/login'  component={Login} ><Login/></Route>
-      <Route path='/products' component={Products} > <Products/></Route>
-      <Route  path='/checkout' component={Checkout}><Checkout/></Route>
-      <Route path='/ordersuccess' component={OrderSuccess}><OrderSuccess/></Route>
+      <Route exact path='/cart' component={Cart}   ><CartProvider><Cart/></CartProvider></Route>
+      <Route exact path='/signup' component={Signup}><Signup/></Route>
+      <Route exact path='/login'  component={Login} ><Login/></Route>
+      <Route exact path='/products' component={Products} > <Products/></Route>
+      <Route exact path='/products/:id' component={ProductDetails} ></Route>
+      <Route exact path='/checkout' component={Checkout}><Checkout/></Route>
+      <Route exact path='/ordersuccess' component={OrderSuccess}><OrderSuccess/></Route>
      </Switch>
     </Router>
     

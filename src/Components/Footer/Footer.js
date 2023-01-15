@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Whatsapp,Instagram, Google, Phone, Gem, Envelope, Shop} from 'react-bootstrap-icons'
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -38,7 +39,7 @@ function Footer() {
             </div>
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Products</h6>
-                <p id='ladies' className="text-reset">Ladies Wear</p>
+                <p id='ladies'  className="text-reset"><Link style={{textDecoration:'none',color:'black'}} to='/products'>Ladies Wear</Link></p>
                 <p id='kids' className="text-reset">Kids Wear</p>
             </div>
           

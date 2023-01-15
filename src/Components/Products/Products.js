@@ -1,8 +1,6 @@
 import React from 'react'
 import { Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import ItemCard from './ItemCard'
-import data from './Data'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
@@ -15,22 +13,7 @@ function Products() {
    <hr/>
    <Container  className='py-4' style={{display:'flex'}}>
     <Row className='justify-content-center ' >
-      {data.productData.map((item,index)=>{
-          return(
-            
-           <ItemCard
-           
-           img={item.img} 
-           tiltle={item.title} 
-           desc={item.desc} 
-           price={item.price} 
-           item={item} 
-           key={index} /> 
-           
-           
-          )
-      })}
-    
+      <ItemCard /> 
     </Row>
    </Container><hr/>
    <Footer/>
@@ -38,4 +21,7 @@ function Products() {
   )
 }
 
-export default Products
+export default Products           
+           
+       
+    
